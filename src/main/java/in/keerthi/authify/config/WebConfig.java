@@ -1,4 +1,4 @@
-package in.keerthi.authify.config;  // ✅ adjust the package name to match your project
+package in.keerthi.authify.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://logauthify.netlify.app/") // your Netlify URL
+                        .allowedOrigins("https://logauthify.netlify.app") // ✅ exact frontend URL
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowCredentials(true);
             }
