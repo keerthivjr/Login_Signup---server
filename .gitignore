@@ -1,0 +1,14 @@
+# Java / Spring
+backend/target/
+*.class
+*.jar
+
+# Node / React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# IDEs
+.idea/
+*.iml
+.DS_Store
