@@ -43,7 +43,10 @@ public class SecurityConfig {
                                 "/register",
                                 "/send-reset-otp",
                                 "/reset-password",
-                                "/logout"
+                                "/logout",
+
+                                // ✅ FIX: Add path matcher for /api/v1.0/** to allow the client's URL
+                                "/api/v1.0/**"
                         )
                         .permitAll()
                         .anyRequest().authenticated())
