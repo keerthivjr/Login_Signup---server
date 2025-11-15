@@ -47,21 +47,21 @@ public class AuthController {
                     .httpOnly(true)
                     .path("/")
                     .maxAge(Duration.ofDays(1))
-                    .sameSite("Strict")
+                    .sameSite("None")
                     .build();
             return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
                     .body(new AuthResponse(request.getEmail(), jwtToken));
-        } catch(BadCredentialsException ex) {
+        } catch (BadCredentialsException ex) {
             Map<String, Object> error = new HashMap<>();
             error.put("error", true);
             error.put("message", "Email or password is incorrect");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
-        } catch(DisabledException ex) {
+        } catch (DisabledException ex) {
             Map<String, Object> error = new HashMap<>();
             error.put("error", true);
             error.put("message", "Account is disabled");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
-        }catch(Exception ex) {
+        } catch (Exception ex) {
             Map<String, Object> error = new HashMap<>();
             error.put("error", true);
             error.put("message", "Authentication failed");
@@ -126,7 +126,7 @@ public class AuthController {
                 .secure(false)
                 .path("/")
                 .maxAge(0)
-                .sameSite("Strict")
+                .sameSite("None")
                 .build();
 
         return ResponseEntity.ok()
